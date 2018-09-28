@@ -1,30 +1,37 @@
-from os import path
-import pymysql
+""" warnings: to ignore warning sql
+    pymysql: to connect DB MySQL
+"""
 import warnings
+import pymysql
 
 # SQL CONNECTION #
-def connect_db(host,user,passwd,db_name,char):
+def connect_db(host, user, passwd, db_name, char):
+    """ Connect to db and create db_name if not exists.
+    """
     try:
-        db = pymysql.connect(host, user, passwd, db_name, charset=char)
-        cursor = db.cursor()
+        database = pymysql.connect(host, user, passwd, db_name, charset=char)
+        cursor = database.cursor()
         cursor.execute("SELECT VERSION()")
         db_v = cursor.fetchone()
-        print ("DATABASE VERSION : {} \nCONNECTION OK".format(db_v))
+        print("DATABASE VERSION : {} \nCONNECTION OK".format(db_v))
     except pymysql.InternalError:
-        db = pymysql.connect(host, user, passwd)
-        cursor = db.cursor()
+        database = pymysql.connect(host, user, passwd)
+        cursor = database.cursor()
         cursor.execute("SELECT VERSION()")
         db_v = cursor.fetchone()
-        cursor.execute("CREATE DATABASE IF NOT EXISTS {} CHARACTER SET {}" \
+        cursor.execute("CREATE DATABASE IF NOT EXISTS {} CHARACTER SET {}"\
             .format(db_name, char))
         cursor.select_db(db_name)
-        print("Connection : OK \nDATABASE VERSION : {} \nCREATING DATABASE {} OK"
+        print("Connection : OK \nDATABASE VERSION : {} \nCREATING DATABASE {} OK"\
             .format(db_v, db_name))
     return cursor
 
+
 def create_tables(cursor):
-    TABLES = {}
-    TABLES['o_salary'] = (
+    """ Create tables and iterate on 'tables' dict to execute query.
+    """
+    tables = {}
+    tables['o_salary'] = (
         "CREATE TABLE IF NOT EXISTS `o_salary` ("
         "  `slry_id` INT NOT NULL AUTO_INCREMENT,"
         "  `slry_min_salary` INT ,"
@@ -32,7 +39,7 @@ def create_tables(cursor):
         "  PRIMARY KEY (`slry_id`)"
         ") ENGINE=INNODB")
 
-    TABLES['o_geoloc'] = (
+    tables['o_geoloc'] = (
         "CREATE TABLE IF NOT EXISTS `o_geoloc` ("
         "  `g_id` INT NOT NULL AUTO_INCREMENT,"
         "  `g_gps_latitude` FLOAT(10,6) ,"
@@ -40,7 +47,7 @@ def create_tables(cursor):
         "  PRIMARY KEY (`g_id`)"
         ") ENGINE=INNODB")
 
-    TABLES['offer'] = (
+    tables['offer'] = (
         "CREATE TABLE IF NOT EXISTS `offer` ("
         "  `o_id` VARCHAR(45) NOT NULL ,"
         "  `o_title` VARCHAR(100) NOT NULL ,"
@@ -62,7 +69,7 @@ def create_tables(cursor):
          REFERENCES `o_geoloc` (`g_id`)"
         ") ENGINE=INNODB")
 
-    TABLES['o_skills'] = (
+    tables['o_skills'] = (
         "CREATE TABLE IF NOT EXISTS `o_skills` ("
         "  `s_id`          INT NOT NULL AUTO_INCREMENT ,"
         "  `s_skill_name`  VARCHAR(100) UNIQUE NULL,"
@@ -75,33 +82,23 @@ def create_tables(cursor):
 
     with warnings.catch_warnings():
         warnings.simplefilter('ignore', pymysql.Warning)
-        for name, ddl in TABLES.items():
+        for name, ddl in tables.items():
             try:
                 cursor.execute(ddl)
                 success = ['TABLE : {} CREATED'.format(name)]
                 print(success)
-            except pymysql.err as e:
-                print(e.args)
-    return "All the tables are created"
-
-def initialize_db(DB_CONFIG):
-    host = DB_CONFIG['host']
-    user = DB_CONFIG['user']
-    passwd = DB_CONFIG['passwd']
-    db = DB_CONFIG['db']
-    char = DB_CONFIG['char']
-    cursor = connect_db(host,user,passwd,db,char)
-    return create_tables(cursor)
+            except pymysql.err as error:
+                print(error.args)
+    return "All the tables in DB"
 
 
-DB_CONFIG = {
-    'host': 'localhost',
-    'user': 'phpmyadmin',
-    'passwd': 'max',
-    'db': 'emploi_store',
-    'char': 'utf8mb4'
-}
-
-initialize_db(DB_CONFIG)
-
-
+def initialize_db(config):
+    """ General execution
+    """
+    host = config['host']
+    user = config['user']
+    passwd = config['passwd']
+    db_name = config['db']
+    char = config['char']
+    cursor = connect_db(host, user, passwd, db_name, char)
+    create_tables(cursor)
