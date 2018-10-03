@@ -1,0 +1,110 @@
+{
+    "activityCode":"86",
+    "activityName":"Ambulances",
+    "companyContactEmail":"faridmersni@yahoo.com",
+    "companyModalityInterviewCode":"MEL",
+    "companyModalityInterviewName":"Envoyer votre CV par mail",
+    "companyName":"AMBULANCES DOMONT 95",
+    "companyWorkforceCode":"2",
+    "companyWorkforceName":"3 à 5 salariés",
+    "contactDetails1":"Courriel : faridmersni@yahoo.com",
+    "contactName":"AMBULANCES DOMONT 95 - M. ND BELLAHCENE",
+    "continentCode":"9C",
+    "continentName":"EUROPE",
+    "contractNatureCode":"E1",
+    "contractNatureName":"Contrat travail",
+    "contractTypeCode":"CDI",
+    "contractTypeName":"Contrat à durée indéterminée",
+    "countryCode":"FR",
+    "countryName":"FRANCE",
+    "creationDate":"2018-07-26T00:00:00+02:00",
+    "degrees":[
+        {
+        },
+        {
+        }
+    ],
+    "departmentCode":"95",
+    "departmentName":"VAL-D'OISE",
+    "description":"Nous recherchons 2 ambulanciers(e) DEA en CDI temps plein pour travailler dans le val d'Oise\nVous prenez en charge :\n- la vérification de l'état de fonctionnement du véhicule sanitaire\n- l'installation du patient selon la prescription médicale\n- la réalisation de démarches administratives\nVous assurez les transports quotidiens des patients entre leur domicile et les centres de soins.\nPour cela vous avez vos documents à jour et en cours de validité ( r221/10; vaccins à jour, diplôme d'ambulancier, afgsu 1 et 2...)\nPoste à pourvoir en septembre\n",
+    "desktops":[
+    ],
+    "drivingLicenses":[
+    ],
+    "experienceCode":"D",
+    "experienceName":"Débutant accepté",
+    "isDisabledAccessibility":0,
+    "isPartTimeWorking":0,
+    "isWorkAlternately":0,
+    "languages":[
+    ],
+    "maxSalary":2468.0,
+    "minSalary":1948.0,
+    "modificationDate":"2018-08-01T00:00:00+02:00",
+    "numberMonthSalary":12.0,
+    "numberVacancies":1,
+    "offerId":"075JGVT",
+    "originCode":"0",
+    "originName":"PE",
+    "origins":[
+        {
+            "originCode":"PE",
+            "originName":"Pôle emploi",
+            "originUrl":"https://candidat.pole-emploi.fr/offres/recherche/detail/075JGVT"
+        }
+    ],
+    "preselectionCode":"A",
+    "preselectionName":"Absence de présélection",
+    "professionalQualities":[
+    ],
+    "qualificationCode":"6",
+    "regionCode":"11",
+    "regionName":"ILE-DE-FRANCE",
+    "romeProfessionCode":"10927",
+    "romeProfessionName":"Ambulancier / Ambulancière",
+    "salaryCode":"M",
+    "salaryCurrencyCode":"EUR",
+    "salaryCurrencyName":"Euros",
+    "salaryName":"Mensuel",
+    "score":64,
+    "skills":[
+        {
+            "requiredSkillCode":"S",
+            "requiredSkillName":"Souhaité",
+            "skillCode":"123201",
+            "skillName":"Facturer une prestation",
+            "skillTypeCode":"S",
+            "skillTypeName":"Structurée"
+        },
+        {
+            "requiredSkillCode":"S",
+            "requiredSkillName":"Souhaité",
+            "skillCode":"107388",
+            "skillName":"Installer le patient dans le véhicule sanitaire selon la préconisation médicale, et lui apporter une assistance",
+            "skillTypeCode":"S",
+            "skillTypeName":"Structurée"
+        },
+        {
+            "requiredSkillCode":"S",
+            "requiredSkillName":"Souhaité",
+            "skillCode":"124388",
+            "skillName":"Réaliser des démarches médico administratives",
+            "skillTypeCode":"S",
+            "skillTypeName":"Structurée"
+        },
+        {
+            "requiredSkillCode":"S",
+            "requiredSkillName":"Souhaité",
+            "skillCode":"107387",
+            "skillName":"Vérifier le fonctionnement des équipements du véhicule sanitaire, repérer les dysfonctionnements et informer le responsable, le mécanicien",
+            "skillTypeCode":"S",
+            "skillTypeName":"Structurée"
+        }
+    ],
+    "subContinentCode":"9A",
+    "subContinentName":"EUROPE HORS CEE",
+    "title":"Ambulancier (e) diplomée DEA H/F",
+    "weeklyWorkTime":"45H",
+    "weeklyWorkTimeTypeCode":"VAR",
+    "weeklyWorkTimeTypeName":"Horaires variables"
+}
