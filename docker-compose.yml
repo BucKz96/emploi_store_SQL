@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - FRANCETRAVAIL_CLIENT_ID=${FRANCETRAVAIL_CLIENT_ID}
+      - FRANCETRAVAIL_CLIENT_SECRET=${FRANCETRAVAIL_CLIENT_SECRET}
+      - DATABASE_URL=sqlite:///./data/emploi_store.db
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+    command: python cli.py api --host 0.0.0.0 --port 8000
+
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    volumes:
+      - ./dashboard:/app/dashboard
+    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+    depends_on:
+      - api
+
+volumes:
+  data:
