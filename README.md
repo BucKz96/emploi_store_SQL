@@ -206,28 +206,6 @@ top_skills = service.get_top_skills(limit=10)
 salary_stats = service.get_salary_stats_by_department()
 ```
 
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-
-1. Fork le projet
-2. Créez une branche (`git checkout -b feature/amazing-feature`)
-3. Commit (`git commit -m 'Add amazing feature'`)
-4. Push (`git push origin feature/amazing-feature`)
-5. Ouvrez une Pull Request
-
 ## 📄 License
 
 Distribué sous licence MIT. Voir [LICENSE](LICENSE) pour plus d'informations.
-
-## 🙏 Remerciements
-
-- [France Travail](https://francetravail.io) pour l'API
-- [FastAPI](https://fastapi.tiangolo.com/) pour le framework web
-- [Streamlit](https://streamlit.io/) pour le dashboard
-
----
-
-<p align="center">
-  Développé avec ❤️ pour la communauté Python
-</p>
